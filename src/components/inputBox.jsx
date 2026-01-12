@@ -10,7 +10,7 @@ export default function InputBox({
     onAmountChange = ()=>{},
     selectedCurrency = "usd",
 }){
-    
+
     return (
        <div className="bg-blue-100 rounded-xl m-4 p-4">
         <div className="flex justify-evenly text-gray-800 gap-x-50 m-2">
@@ -18,11 +18,11 @@ export default function InputBox({
         </div>
         <div className="gap-x-20 flex">
             <input 
-            type="text"
+            type = "number"
              readOnly = {!isboxActivated}
-             value={Number(amount).toFixed(4)}
+             value={amount}
              onChange={(e)=>{
-                onAmountChange(e.target.value);
+                onAmountChange(Number(e.target.value));
              }} 
             className="bg-gray-300 rounded-lg p-2"/>
             <select 
@@ -33,8 +33,10 @@ export default function InputBox({
              onChange={(e)=>{
                 onCurrencyChange(e.target.value)
              }}>
-{currencyList.map((currency)=>(
- <option>{currency}</option>
+{currencyList.map((currency) => (
+  <option key={currency} value={currency}>
+    {currency}
+  </option>
 ))}
             </select>
         </div>

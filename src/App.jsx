@@ -36,7 +36,7 @@ const currencyListObjecKeys = Object.keys(currencyListObject) || [];
         label={upperLabel}
         amount={fromAmmount}
         currency={fromCurrency}
-        isboxActivated = "true"
+        isboxActivated = {true}
         currencyList={currencyListObjecKeys}
         onAmountChange={(amount)=>{
           setFromAmmount(amount);
@@ -49,21 +49,22 @@ const currencyListObjecKeys = Object.keys(currencyListObject) || [];
         label={lowerLabel}
         amount={toAmount}
          currency={toCurrency}
-         isboxActivated = "false"
+         isboxActivated = {false}
         currencyList={currencyListObjecKeys}
+        onCurrencyChange={(currency)=>{
+          setToCurrency(currency);
+        }}
         onAmountChange={(amount)=>{
           setToAmmount(amount);
         }}
-        onCurrencyChange={(currency)=>{
-          setToCurrency(currency);
-        }}/>
+        />
         </div>
         <button
         className=" mt-4 w-full p-2 rounded-lg bg-blue-400 text-white hover:bg-blue-800 shadow-lg transition-all duration-550 delay-75 text-wrap text-2xl"
       onClick={(e)=>{
         e.preventDefault();
          const rate = Number(currencyListObject[toCurrency]);
-  setToAmmount(fromAmmount * rate);
+  setToAmmount((fromAmmount * rate).toFixed(4));
       }} type="submit">{`Get ${fromCurrency.toUpperCase()} to ${toCurrency.toUpperCase()} rate`}</button>
       </div>
       
