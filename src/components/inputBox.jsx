@@ -18,7 +18,7 @@ export default function InputBox({
         </div>
         <div className="gap-x-20 flex">
             <input 
-            type="number"
+            type="text"
              readOnly = {!isboxActivated}
              value={Number(amount).toFixed(4)}
              onChange={(e)=>{
