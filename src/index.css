@@ -1,0 +1,12 @@
+@media (width < 600px ){
+.scaler{
+   
+  transform: scale(0.4);
+  transform-origin: top left;
+  left: auto;
+  right: auto;
+ position: absolute;
+
+width: 263%;
+}
+}
